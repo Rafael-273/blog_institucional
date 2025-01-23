@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  pine-studio-database: 
+    image: postgres:latest 
+    container_name: pine-studio-database 
+    ports:
+      - "5432:${DB_PORT}"
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    restart: always
+    networks:
+      - pine-studio-network
+
+  web-project:
+    hostname: "${HOSTNAME}"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /usr/src/pine_studio
+    command: [
+        "sh",
+        "-c", 
+        "pip install debugpy -t /tmp && 
+        python /tmp/debugpy --wait-for-client --listen 0.0.0.0:3000
+        ./manage.py runserver ${HOSTNAME}:${PORT}"
+    ]
+    volumes:
+      - ./pine_studio/:/usr/src/pine_studio
+    ports:
+      - "${PORT}:${PORT}"
+      - "3000:3000"
+    environment:
+      - PYTHONUNBUFFERED=True
+      - OAUTHLIB_INSECURE_TRANSPORT=False
+    env_file:
+      .env
+    depends_on:
+      - pine-studio-database
+    networks:
+      - pine-studio-network
+
+networks:
+    pine-studio-network:
+        external: true
