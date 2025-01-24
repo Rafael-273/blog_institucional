@@ -1,0 +1,93 @@
+/* General Settings */
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+    font-family: "Piepie W01 Regular";
+    src: url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.eot");
+    src: url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.svg#Piepie W01 Regular")format("svg");
+}
+
+:root {
+    --primary-color: #1B1C20;
+    --secondary-color-light: #FFFFFF;
+    --secondary-color-light-opacity: #b8b8b8d3;
+    --secondary-color-dark: #232428;
+    --accent-color: #e2c9a4;
+    --tertiary-color: #253D2E;
+    --subcolor-dark: #242f28;
+    --tertiary-color-dark: #121216;
+    --tertiary-color-light: #99b9a5;
+}
+
+
+::-webkit-scrollbar {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(224, 224, 224);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+    background: rgb(224, 224, 224);
+    border-radius: 10px;
+}
+
+input {
+    outline: none;
+}
+
+/* Select */
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    width: 100%;
+    padding: 0.5rem 1rem !important;
+    border-radius: 0.5rem !important;
+    box-shadow: none;
+    border: 0 !important;
+    background-image: none;
+    flex: 1;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>');
+    background-repeat: no-repeat;
+    background-size: 1.4rem;
+    background-position: right 1em top 50%;
+    cursor:pointer;
+    font-size: 0.9em;
+}
+
+select::-ms-expand {
+    display: none;
+    cursor: pointer;
+}
+
+select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    cursor: pointer;
+    pointer-events: none;
+    transition: .25s all ease;
+}
+
+.select2-container--default .select2-selection--multiple {
+    padding: 0 0.5rem;
+    border: 0.1rem solid rgba(197, 197, 197, 0.644) !important;
+}

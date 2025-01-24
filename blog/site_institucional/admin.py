@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import article, contact
 
-# Register your models here.
+admin.site.register(article.Article)
+admin.site.register(contact.ContactMessage)
