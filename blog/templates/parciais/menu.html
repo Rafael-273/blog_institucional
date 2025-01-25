@@ -1,0 +1,73 @@
+{% load static %}
+<header class="bg-transparent w-full transition duration-800 ease-in-out fixed left-0 z-50" id="navbar" style="top: -2px;">
+    <nav class="container mx-auto flex justify-between items-center p-4 h-24">
+        <button id="menu-toggle" class="flex items-center text-4xl md:hidden focus:outline-none ml-2">
+            <ion-icon name="menu-outline" style="color: var(--secondary-color-light);"></ion-icon>
+        </button>
+
+        <a href="{% url 'home' %}" class="md:flex-grow-0 mx-auto md:mx-0 md:ml-4 min-w-[150px]">
+            <img class="hidden md:flex w-8 md:w-8 mx-auto md:mx-0" src="{% static 'assets/icone.png' %}" alt="logo">
+            <img class="flex md:hidden w-24 md:w-8 mx-auto md:mx-0" src="{% static 'assets/logo.png' %}" alt="logo">
+        </a>
+
+        <a href="https://www.instagram.com/alinecapocci/" target="_blank" class="md:hidden text-3xl mr-2 flex justify-center">
+            <ion-icon name="logo-instagram" style="color: var(--secondary-color-light);"></ion-icon>
+        </a>
+
+        <div class="hidden md:flex md:flex-grow md:items-center md:justify-between">
+            <ul class="flex space-x-12 mx-auto">
+                <li><a href="{% url 'home' %}" class="font-semibold  text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Início</a></li>
+                <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Áreas de Serviço</a></li>
+                <li><a href="" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Blog</a></li>
+                <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Sobre Nós</a></li>
+                <li><a href="" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Contato</a></li>
+            </ul>
+        </div>
+
+        <div class="hidden md:flex space-x-6">
+            <a href="https://www.instagram.com/alinecapocci/" target="_blank">
+                <ion-icon name="logo-instagram" class="text-white text-2xl"></ion-icon>
+            </a>
+        </div>
+    </nav>
+
+    <ul id="mobile-menu" class="md:hidden flex flex-col items-center space-y-6 mt-2 py-4 absolute w-full top-20 hidden p-4" style="z-index: 1; background-color: var(--tertiary-color-dark);">
+        <li class="p-2"><a href="{% url 'home' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Início</a></li>
+        <li class="p-2"><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Áreas de Serviço</a></li>
+        <li class="p-2"><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Blog</a></li>
+        <li class="p-2"><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Sobre Nós</a></li>
+        <li class="p-2"><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Contato</a></li>
+    </ul>
+</header>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function updateNavbarColor() {
+        if (!$('#mobile-menu').hasClass('hidden') || $(window).scrollTop() > 50) {
+            $('#navbar').css('background', 'var(--tertiary-color-dark)');
+        } else {
+            $('#navbar').css('background', 'transparent');
+        }
+    }
+
+    $('#menu-toggle').on('click', function() {
+        $('#mobile-menu').toggleClass('hidden');
+        updateNavbarColor();
+    });
+
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('#mobile-menu, #menu-toggle').length) {
+            $('#mobile-menu').addClass('hidden');
+            updateNavbarColor();
+        }
+    });
+
+    $(window).on('scroll', function() {
+        updateNavbarColor();
+    });
+
+    $(document).ready(function() {
+        updateNavbarColor();
+    });
+
+</script>
