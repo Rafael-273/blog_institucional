@@ -17,10 +17,11 @@
         <div class="hidden md:flex md:flex-grow md:items-center md:justify-between">
             <ul class="flex space-x-12 mx-auto">
                 <li><a href="{% url 'home' %}" class="font-semibold  text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Início</a></li>
-                <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Áreas de Serviço</a></li>
-                <li><a href="" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Blog</a></li>
-                <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Sobre Nós</a></li>
-                <li><a href="" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Contato</a></li>
+                <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Áreas de Atuação</a></li>
+                <li><a href="" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Notícias</a></li>
+                <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Blog</a></li>
+                <li><a href="" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Sobre Nós</a></li>
+                <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Contato</a></li>
             </ul>
         </div>
 
@@ -33,7 +34,7 @@
 
     <ul id="mobile-menu" class="md:hidden flex flex-col items-center space-y-6 mt-2 py-4 absolute w-full top-20 hidden p-4" style="z-index: 1; background-color: var(--tertiary-color-dark);">
         <li class="p-2"><a href="{% url 'home' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Início</a></li>
-        <li class="p-2"><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Áreas de Serviço</a></li>
+        <li class="p-2"><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Áreas de Atuação</a></li>
         <li class="p-2"><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Blog</a></li>
         <li class="p-2"><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Sobre Nós</a></li>
         <li class="p-2"><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Contato</a></li>
@@ -44,7 +45,7 @@
 <script>
     function updateNavbarColor() {
         if (!$('#mobile-menu').hasClass('hidden') || $(window).scrollTop() > 50) {
-            $('#navbar').css('background', 'var(--tertiary-color-dark)');
+            $('#navbar').css('background', 'var(--subcolor-dark)');
         } else {
             $('#navbar').css('background', 'transparent');
         }
