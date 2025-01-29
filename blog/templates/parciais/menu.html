@@ -6,7 +6,7 @@
         </button>
 
         <a href="{% url 'home' %}" class="md:flex-grow-0 mx-auto md:mx-0 md:ml-4 min-w-[150px]">
-            <img class="hidden md:flex w-8 md:w-8 mx-auto md:mx-0" src="{% static 'assets/icone.png' %}" alt="logo">
+            <img class="hidden md:flex w-8 md:w-20 mx-auto md:mx-0" src="{% static 'assets/logo.png' %}" alt="logo">
             <img class="flex md:hidden w-24 md:w-8 mx-auto md:mx-0" src="{% static 'assets/logo.png' %}" alt="logo">
         </a>
 
@@ -45,7 +45,7 @@
 <script>
     function updateNavbarColor() {
         if (!$('#mobile-menu').hasClass('hidden') || $(window).scrollTop() > 50) {
-            $('#navbar').css('background', 'var(--subcolor-dark)');
+            $('#navbar').css('background', 'var(--primary-color)');
         } else {
             $('#navbar').css('background', 'transparent');
         }

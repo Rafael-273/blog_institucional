@@ -4,17 +4,15 @@ body {
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    font-family: 'Montserrat', sans-serif;
 }
 
 @font-face {
-    font-family: "Piepie W01 Regular";
-    src: url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.eot");
-    src: url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.svg#Piepie W01 Regular")format("svg");
+    font-family: "Montserrat";
+    src: url("https://fonts.gstatic.com/s/montserrat/v28/JTURjIg1_i6t8kCHKm45_bZF3gnD-w.ttf") format("truetype"),
+         url("https://fonts.gstatic.com/s/montserrat/v28/JTURjIg1_i6t8kCHKm45_bZF3gxD-w.ttf") format("truetype"),
+         url("https://fonts.gstatic.com/s/montserrat/v28/JTURjIg1_i6t8kCHKm45_cJD3gnD-w.ttf") format("truetype"),
+         url("https://fonts.gstatic.com/s/montserrat/v28/JTURjIg1_i6t8kCHKm45_cJD3gxD-w.ttf") format("truetype");
+    font-display: swap;
 }
 
 :root {
