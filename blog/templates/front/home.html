@@ -42,71 +42,87 @@
     </div>
     <div class="p-16 flex flex-col gap-8 items-center">
         <h1 class="text-3xl md:text-5xl text-[var(--secondary-color-light)]">Áreas de <b>Atuação</b></h1>
-        <div class="flex gap-6 px-4 md:px-10 items-center">
-                <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow w-[18rem] h-[27rem] flex flex-col items-center gap-4">
-                    <div class="w-1/4 h-1/4 flex justify-center items-center">
-                        <img src="{% static 'assets/icons/pena.png' %}" alt="">
-                    </div>
-                    <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                        <h2 class="text-2xl text-[var(--secondary-color-light)]">Execução de <b>Pena:</b></h2>
-                        <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
-                        Esta é a área do direito que protege o meio ambiente da ação humana. Atuamos na busca pelo direito das pessoas e empresas de utilizar os recursos naturais e sua favor. Fazemos defesas técnicas em processos administrativos
-                        </p>
-                    </div>
+        <div class="flex flex-wrap justify-center gap-6 px-4 md:px-10 items-center">
+            <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow  w-[22rem] h-[27rem] md:w-[18rem] md:h-[27rem] flex flex-col items-center gap-4">
+                <div class="w-1/4 h-1/4 flex justify-center items-center">
+                    <img src="{% static 'assets/icons/pena.png' %}" alt="">
                 </div>
-
-                <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow w-[20rem] h-[30rem] flex flex-col items-center gap-4">
-                    <div class="w-1/4 h-1/4 flex justify-center items-center">
-                        <img class="w-4/5" src="{% static 'assets/icons/previdenciario.png' %}" alt="">
-                    </div>
-                    <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                        <h2 class="text-2xl text-[var(--secondary-color-light)]"><b>Previdenciário:</b></h2>
-                        <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
+                <div class="h-2/3 flex flex-col items-center justify-start gap-2">
+                    <h2 class="text-2xl text-[var(--secondary-color-light)]">Execução de <b>Pena:</b></h2>
+                    <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
                         Esta é a área do direito que protege o meio ambiente da ação humana. Atuamos na busca pelo direito das pessoas e empresas de utilizar os recursos naturais e sua favor. Fazemos defesas técnicas em processos administrativos
-                        </p>
-                    </div>
+                    </p>
                 </div>
-
-                <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow w-[22rem] h-[33rem] flex flex-col items-center gap-4">
-                    <div class="w-1/3 h-1/3 flex justify-center items-center">
-                        <img src="{% static 'assets/icons/criminal.png' %}" alt="">
-                    </div>
-                    <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                        <h2 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Criminal:</b></h2>
-                        <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
+                <div class="flex items-center justify-center bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-color-gradient)] text-[var(--primary-color)] py-2 px-16 md:px-8 rounded gap-2 cursor-pointer">
+                    <ion-icon class="text-xl sm:text-2xl" name="logo-whatsapp"></ion-icon>
+                    <h5 class="text-sm sm:text-sm lg:text-sm">Entrar em Contato</h5>
+                </div>
+            </div>
+        
+            <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow w-[22rem] h-[27rem] md:w-[20rem] md:h-[30rem] flex flex-col items-center gap-4">
+                <div class="w-1/4 h-1/4 flex justify-center items-center">
+                    <img class="w-4/5" src="{% static 'assets/icons/previdenciario.png' %}" alt="">
+                </div>
+                <div class="h-2/3 flex flex-col items-center justify-start gap-2">
+                    <h2 class="text-2xl text-[var(--secondary-color-light)]"><b>Previdenciário:</b></h2>
+                    <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
+                        Esta é a área do direito que protege o meio ambiente da ação humana. Atuamos na busca pelo direito das pessoas e empresas de utilizar os recursos naturais e sua favor. Fazemos defesas técnicas em processos administrativos
+                    </p>
+                </div>
+                <div class="flex items-center justify-center bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-color-gradient)] text-[var(--primary-color)] py-2 px-16 md:px-12 rounded gap-2 cursor-pointer">
+                    <ion-icon class="text-xl sm:text-2xl" name="logo-whatsapp"></ion-icon>
+                    <h5 class="text-sm sm:text-sm lg:text-sm">Entrar em Contato</h5>
+                </div>
+            </div>
+        
+            <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow w-[22rem] h-[33rem] flex flex-col items-center gap-4">
+                <div class="w-1/3 h-1/3 flex justify-center items-center">
+                    <img src="{% static 'assets/icons/criminal.png' %}" alt="">
+                </div>
+                <div class="h-2/3 flex flex-col items-center justify-start gap-2">
+                    <h2 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Criminal:</b></h2>
+                    <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
                         Este é o ramo mais delicado do direito, pois aqui geralmente está em questão a liberdade de uma pessoa. Nossa atuação vai desde o flagrante até o início de execução de pena, sempre buscando a liberdade do cliente ou então a melhor valoração das provas
-                        </p>
-                    </div>
+                    </p>
                 </div>
-          
-                <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow w-[20rem] h-[30rem] flex flex-col items-center gap-4">
-                    <div class="w-1/4 h-1/4 flex justify-center items-center">
-                        <img src="{% static 'assets/icons/criminal.png' %}" alt="">
-                    </div>
-                    <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                        <h2 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Familiar:</b></h2>
-                        <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
+                <div class="flex items-center justify-center bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-color-gradient)] text-[var(--primary-color)] py-2 px-16 rounded gap-2 cursor-pointer">
+                    <ion-icon class="text-xl sm:text-2xl" name="logo-whatsapp"></ion-icon>
+                    <h5 class="text-sm sm:text-sm lg:text-sm">Entrar em Contato</h5>
+                </div>
+            </div>
+        
+            <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow w-[22rem] h-[27rem] md:w-[20rem] md:h-[30rem] flex flex-col items-center gap-4">
+                <div class="w-1/4 h-1/4 flex justify-center items-center">
+                    <img src="{% static 'assets/icons/familiar.png' %}" alt="">
+                </div>
+                <div class="h-2/3 flex flex-col items-center justify-start gap-2">
+                    <h2 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Familiar:</b></h2>
+                    <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
                         Nesta área, o mais importante é gerenciar conflitos, seja aqueles causados por um divórcio ou por um pedido de fixação de guarda e alimentos em favor de menores. Nossa equipe preza pela resolução amigável dos conflitos, sempre propondo o melhor acordo.
-                        </p>
-                    </div>
+                    </p>
                 </div>
-
-                <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow w-[18rem] h-[27rem] flex flex-col items-center gap-4">
-                    <div class="w-1/5 h-1/5 flex justify-center items-center">
-                        <img src="{% static 'assets/icons/civel.png' %}" alt="">
-                    </div>
-                    <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                        <h2 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Cível:</b></h2>
-                        <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
+                <div class="flex items-center justify-center bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-color-gradient)] text-[var(--primary-color)] py-2 px-16 md:px-12 rounded gap-2 cursor-pointer">
+                    <ion-icon class="text-xl sm:text-2xl" name="logo-whatsapp"></ion-icon>
+                    <h5 class="text-sm sm:text-sm lg:text-sm">Entrar em Contato</h5>
+                </div>
+            </div>
+        
+            <div class="border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow w-[22rem] h-[27rem] md:w-[18rem] md:h-[27rem] flex flex-col items-center gap-4">
+                <div class="w-1/5 h-1/5 flex justify-center items-center">
+                    <img src="{% static 'assets/icons/civel.png' %}" alt="">
+                </div>
+                <div class="h-2/3 flex flex-col items-center justify-start gap-2">
+                    <h2 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Cível:</b></h2>
+                    <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
                         Nesta área, o mais importante é gerenciar conflitos, seja aqueles causados por um divórcio ou por um pedido de fixação de guarda e alimentos em favor de menores. Nossa equipe preza pela resolução amigável dos conflitos
-                        </p>
-                    </div>
+                    </p>
                 </div>
+                <div class="flex items-center justify-center bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-color-gradient)] text-[var(--primary-color)] py-2 px-16 md:px-8 rounded gap-2 cursor-pointer">
+                    <ion-icon class="text-xl sm:text-2xl" name="logo-whatsapp"></ion-icon>
+                    <h5 class="text-sm sm:text-sm lg:text-sm">Entrar em Contato</h5>
+                </div>
+            </div>
         </div>
-    
-        <button class="w-1/3 bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-color-gradient)] text-[var(--primary-color)] py-3 px-6 rounded-2xl hover:scale-105 transition-transform">
-            PRECISO DE <b>UM ATENDIMENTO</b>
-        </button>
     </div>
 </section>
 
