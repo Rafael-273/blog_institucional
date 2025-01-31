@@ -124,23 +124,60 @@
             </div>
         </div>
     </div>
-    <div class="relative p-16 bg-cover bg-top flex gap-8 items-center" style="background-image: url({% static 'assets/advocacia_background.jpg' %});">
-        <div class="w-full lg:w-2/3 flex flex-col gap-4 fade-in-up p-6 sm:p-8 justify-center items-start z-10 ml-12">
-            <h2 class="text-white font-bold text-5xl sm:text-6xl lg:text-7xl w-full sm:w-4/5 lg:w-2/3">
-                Seja bem-vindo ao <p class="text-[var(--accent-color)]">Capocci Advocacia</p>
+    <div class="relative p-8 sm:p-12 lg:p-16 bg-cover bg-center flex flex-col lg:flex-row gap-8 items-center" style="background-image: url({% static 'assets/advocacia_background.jpg' %});">
+        <div class="w-full lg:w-2/3 flex flex-col gap-4 fade-in-up p-6 sm:p-8 justify-center items-start z-10 lg:ml-12 text-center lg:text-left">
+            <h2 class="text-white font-bold text-4xl lg:text-6xl leading-tight md:w-1/2">
+                Seja bem-vindo ao <span class="text-[var(--accent-color)]">Capocci Advocacia</span>
             </h2>
-            <h5 class="text-white text-2sm sm:text-lg lg:text-xl font-light w-full sm:w-3/4 lg:w-1/2">
-                Liderado por Aline Capocci, <b>uma advogada criminalista com mais de oito anos de experiência</b>. Ao longo da minha trajetória profissional, atuei em mais de dois mil processos, incluindo casos de grande repercussão e participação em grandes operações em todo o país.
-
-No CAPOCCI ADVOCACIA, minha missão é garantir uma defesa robusta e eficaz em todas as etapas do processo criminal. Com uma equipe dedicada de advogados especializados, estamos preparados para oferecer suporte abrangente desde a fase investigativa até o término do cumprimento da pena.
+            <h5 class="text-white text-3sm sm:text-base lg:text-lg font-light w-full sm:w-3/4 lg:w-2/3 leading-relaxed">
+                Liderado por Aline Capocci, <b>uma advogada criminalista com mais de oito anos de experiência</b>. Atuei em mais de dois mil processos, incluindo casos de grande repercussão e operações em todo o país.
+                <br><br>
+                No CAPOCCI ADVOCACIA, nossa missão é garantir uma defesa robusta e eficaz em todas as etapas do processo criminal. Com uma equipe dedicada, oferecemos suporte desde a fase investigativa até o cumprimento da pena.
             </h5>
-            <div class="w-full sm:w-auto flex items-center justify-center bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-color-gradient)] text-[var(--primary-color)] py-3 px-12 rounded gap-2 cursor-pointer">
+            <div class="w-full sm:w-auto flex items-center justify-center bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-color-gradient)] text-[var(--primary-color)] py-3 px-8 rounded gap-2 cursor-pointer transition-transform hover:scale-105">
                 <ion-icon class="text-xl sm:text-2xl" name="logo-whatsapp"></ion-icon>
                 <h5 class="text-sm sm:text-lg lg:text-lg">Entrar em Contato</h5>
             </div>
         </div>
-        <div class="absolute inset-0 bg-black opacity-40 z-0"></div>
-        <div></div>
+        <div class="absolute inset-0 bg-black opacity-70 md:opacity-50 z-0"></div>
+    </div>
+    
+    <div class="py-12 md:py-16">
+        <div class="container mx-auto px-6 md:px-12 text-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="flex flex-col items-center text-center shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow cursor-pointer bg-[var(--secondary-color-dark)] h-auto sm:h-72">
+                    <div class="flex justify-center mb-4">
+                        <ion-icon class="text-5xl text-[var(--accent-color)]" name="trophy-outline"></ion-icon>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Atendimento em <b>todo Brasil</b></h3>
+                    <p class="leading-relaxed text-gray-400">
+                        Localizado na cidade de Cambé-PR, a CAPOCCI ADVOCACIA atende clientes em todo o país por meio de atendimento online, proporcionando comodidade e acessibilidade a todos que buscam nossa assistência jurídica especializada.
+                    </p>
+                </div>
+    
+                <div class="flex flex-col items-center text-center shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow cursor-pointer bg-[var(--secondary-color-dark)] h-auto sm:h-72">
+                    <div class="flex justify-center mb-4">
+                        <ion-icon class="text-5xl text-[var(--accent-color)]" name="people-outline"></ion-icon>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Assessoria <b>Personalizada</b></h3>
+                    <p class="leading-relaxed text-gray-400">
+                        Somos especializados em VOCÊ. Aqui na CAPOCCI ADVOCACIA cuidamos de cada caso de forma totalmente personalizada, trazendo mais segurança, conforto e credibilidade aos nossos clientes.
+                    </p>
+                </div>
+    
+                <div class="flex flex-col items-center text-center shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow cursor-pointer bg-[var(--secondary-color-dark)] h-auto sm:h-72">
+                    <div class="flex justify-center mb-4">
+                        <span class="material-symbols-outlined text-5xl text-[var(--accent-color)]">
+                            gavel
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Defesa, liberdade e <b>absolvição</b></h3>
+                    <p class="leading-relaxed text-gray-400">
+                        Para nós, você não será “apenas mais um cliente”. Nosso foco é totalmente destinado a defender seus direitos e trazer sua liberdade à tona. Tenha ao seu lado uma equipe de peso, honesta e com experiência.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Contato
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'front/contact_style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="flex-grow container mx-auto mb-8 mt-28 flex flex-col items-center px-4 sm:px-6 lg:px-8">
+        {% if messages %}
+            <div class="w-full mt-4">
+                <ul class="space-y-2">
+                    {% for message in messages %}
+                        <li class="p-4 rounded-lg text-center 
+                            {% if message.tags == 'success' %} bg-green-100 text-green-700 {% endif %} 
+                            {% if message.tags == 'error' %} bg-red-100 text-red-700 {% endif %}">
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <section class="py-6 w-full flex flex-col justify-center items-center">
+            <header class="text-center mb-4 flex flex-col items-center">
+                <h1 class="text-3xl md:text-6xl text-[var(--accent-color)]">
+                    Entre em <b>Contato Conosco</b>
+                </h1>
+                <p class="text-sm sm:text-base lg:text-lg text-white mt-2 px-4 md:px-0 w-2/3">
+                    Nossa equipe está pronta para esclarecer suas dúvidas e oferecer o suporte necessário.
+                </p>
+            </header>
+
+            <form id="contact-form" action="{% url 'contact' %}" method="POST" class="w-full md:w-1/2 py-6 px-2 rounded-lg">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div class="mb-4">
+                    <label for="name" class="block text-sm text-white mb-2">Seu Nome</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="mb-4">
+                    <label for="email" class="block text-sm text-white mb-2">Seu E-mail</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="mb-4">
+                    <label for="phone" class="block text-sm text-white mb-2">Seu Telefone</label>
+                    {{ form.phone }}
+                </div>
+
+                <div class="mb-4">
+                    <label for="subject" class="block text-sm text-white mb-2">Assunto</label>
+                    {{ form.subject }}
+                </div>
+
+                <div class="mb-4">
+                    <label for="message" class="block text-sm text-white mb-2">Mensagem</label>
+                    {{ form.message }}
+                </div>
+
+                <div>
+                    <button type="submit" id="submit-button" class="bg-[var(--accent-color)] default-button w-full px-4 py-2 rounded-lg transition duration-200">
+                        Enviar
+                    </button>
+                </div>
+            </form>
+        </section>
+    </div>    
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#contact-form').on('submit', function() {
+                $('#submit-button').prop('disabled', true);
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+    Sobre Nós
+
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'front/about_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mx-auto p-6 shadow-md rounded-lg">
+    <section class="flex flex-col lg:flex-row items-center lg:space-x-8 lg:space-y-0 p-0 px-6 md:px-0 md:p-6 mt-16">
+        <div class="cover flex-1 hidden md:flex justify-center items-center overflow-hidden h-64 lg:h-[50vh] rounded-lg">
+            <img src="{% static 'assets/sobre_nos.jpg' %}" alt="Imagem sobre a organização" class="cover-image">
+        </div>        
+        
+        <div class="flex-1 flex flex-col gap-4 p-4 text-lg leading-relaxed">
+            <h1 class="text-3xl text-[var(--accent-color)] leading-tight">Quem <b>Somos?</b></h1>
+            <p class="text-[var(--secondary-color-light)]">
+                Seja bem-vindo ao CAPOCCI ADVOCACIA, liderado por Aline Capocci, uma advogada criminalista com mais de oito anos de experiência. Ao longo da minha trajetória profissional, atuei em mais de dois mil processos, incluindo casos de grande repercussão e participação em grandes operações em todo o país.
+
+No CAPOCCI ADVOCACIA, minha missão é garantir uma defesa robusta e eficaz em todas as etapas do processo criminal. Com uma equipe dedicada de advogados especializados, estamos preparados para oferecer suporte abrangente desde a fase investigativa até o término do cumprimento da pena.
+
+Contamos com profissionais especializados em processos criminais em curso, recursos até os tribunais superiores e execução penal, assegurando que os direitos e garantias dos nossos clientes sejam respeitados em todas as instâncias.
+
+Além disso, nossa equipe inclui especialistas em direito previdenciário e cível, permitindo que benefícios em outras áreas do direito, como o auxílio-reclusão, sejam pleiteados em nome dos nossos clientes.
+            </p>
+        </div>
+    </section>
+
+    <section class="flex flex-col items-center p-6">
+        <div class="w-full lg:w-3/4 flex flex-col items-center text-lg text-gray-700 leading-relaxed">
+            <h1 class="text-3xl leading-tight mb-6 text-[var(--accent-color)]">Nossa <b>Equipe</b></h1>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-12">           
+                <div class="flex flex-col items-center gap-4 order-1 md:order-2">
+                    <div class="relative w-60 h-60 rounded-full overflow-hidden">
+                        <img src="{% static 'assets/aline.jpg' %}" alt="Foto de Dayane" class="w-full h-full object-cover" style="object-position: center bottom; transform: scale(1.2);">
+                    </div>                                     
+                    <div class="text-center">
+                        <h4 class="text-xl font-semibold text-[var(--accent-color)]">Aline Capocci</h4>
+                        <h5 class="text-[var(--secondary-color-light)]">Advogada Criminalista</h5>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</div>
+
+{% endblock %}

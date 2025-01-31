@@ -19,12 +19,11 @@ body {
     --primary-color: #030303;
     --secondary-color-light: #FFFFFF;
     --secondary-color-light-opacity: #b8b8b8d3;
-    --secondary-color-dark: #151515;
+    --secondary-color-dark: #252525;
     --accent-color: #FAC08C;
     --accent-color-gradient: #c09067;
     --tertiary-color: #C2876B;
-    --subcolor-dark: #181818;
-    --tertiary-color-dark: #613726;
+    --subcolor-dark: #0c0c0c;
 }
 
 

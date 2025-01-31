@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Onde Comer em Maricá
+{% endblock %}
+
+{% block content %}
+
+<section class="content-page flex flex-col lg:flex-row p-4 sm:p-6 lg:px-8 lg:py-10 md:gap-4">
+    <div id="article-recommendation-left" class="vertical-ads flex flex-col justify-center gap-4 px-4 hidden lg:flex lg:flex-col lg:gap-4">
+        {% for ad in ads.recommendations_left %}
+            <div class="ad-slide vertical-ad w-80 h-screen rounded-lg hidden opacity-0">
+                <a href="{{ ad.link }}" target="_blank">
+                    <img src="{{ ad.image.url }}" alt="{{ ad.title }}" class="w-full h-full object-cover rounded-xl">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="article-content mx-auto w-full lg:max-w-3xl xl:max-w-5xl p-4 sm:p-6 bg-white rounded-md">
+        <div class="title flex flex-col gap-2 sm:gap-4 py-4 lg:py-6">
+            <h1 class="article-title text-3xl sm:text-3xl lg:text-5xl font-bold text-gray-800 leading-tight">{{ article.title }}</h1>
+            <h2 class="article-subtitle text-base sm:text-lg lg:text-xl text-gray-700">{{ article.subtitle }}</h2>
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <span class="text-gray-600 font-bold text-sm sm:text-base">
+                    {% for category in article.categories.all %}
+                        {{ category.name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </span>
+                <span class="text-gray-500 text-xs sm:text-sm">{{ article.created_at|date:"d F Y" }}</span>
+            </div>
+        </div>
+    
+        <div class="cover mb-4 sm:mb-8">
+            <img src="{{ article.cover.url }}" alt="Imagem do Artigo" class="w-full max-h-[30rem] sm:max-h-[20rem] md:max-h-[25rem] rounded-lg object-cover">
+            {% if article.cover_caption %}
+                <p class="text-sm text-gray-500 mt-2">{{ article.cover_caption }}</p>
+            {% endif %}
+        </div>
+    
+        {% for section in article.sections.all %}
+            {% if section.image %}
+            <div class="cover mb-4 sm:mb-8">
+                <img src="{{ section.image.url }}" alt="Imagem da Seção" class="w-full max-h-[30rem] sm:max-h-[20rem] md:max-h-[25rem] rounded-lg object-cover">
+                {% if section.caption_image %}
+                    <p class="text-sm text-gray-500 mt-2">{{ section.caption_image }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% if section.content %}
+            <div class="mb-4 sm:mb-8">
+                <p class="text-base sm:text-lg text-gray-700 leading-relaxed">{{ section.content }}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        {% if restaurant %}
+            <a href="{% url 'restaurant_detail' restaurant.slug %}">
+                <div class="restaurant-section bg-gray-100 p-6 rounded-lg my-8 bounce-animation">
+                    <div class="flex w-full justify-center md:justify-between items-center">
+                        <h3 class="text-96 md:text-xl text-gray-800 mb-2 text-center md:text-left"><b>Recomendado</b> com nosso Selo</h3>
+                        <img src="{% static 'assets/selo.svg' %}" alt="{{ restaurant.name }}" class="w-12 h-12 md:w-12 md:h-12 object-cover ml-2 hidden md:flex">
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <img src="{{ restaurant.logo.url }}" alt="{{ restaurant.name }}" class="w-24 h-24 md:w-20 md:h-20 rounded-full object-cover sm:mb-0">
+                        <div class="flex flex-col text-center sm:text-left items-center sm:items-start">
+                            <h4 class="text-lg font-bold text-gray-800 mb-2 md:mb-0">{{ restaurant.name }}</h4>
+                            <p class="text-sm text-gray-600">{{ restaurant.description|truncatewords:40 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endif %}
+    
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-8 gap-2 w-full">
+            <span class="text-gray-600 font-bold text-sm sm:text-base">{{ article.author }}</span>
+            <span class="text-gray-500 text-xs sm:text-sm">{{ article.created_at|date:"d F Y" }}</span>
+        </div>
+    </div>
+
+    <div id="article-recommendation-right" class="vertical-ads flex flex-col justify-center gap-4 px-4 hidden lg:flex lg:flex-col lg:gap-4">
+        {% for ad in ads.recommendations_right %}
+            <div class="ad-slide vertical-ad w-full h-64 rounded-lg lg:w-80 lg:h-screen hidden opacity-0">
+                <a href="{{ ad.link }}" target="_blank">
+                    <img src="{{ ad.image.url }}" alt="{{ ad.title }}" class="w-full h-full object-cover rounded-xl">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div id="article-recommendation-mobile" class="horizontal-ad w-full px-4 md:px-0 h-40 md:h-48 lg:h-56 overflow-hidden flex md:hidden">
+        {% for ad in ads.recommendations_mobile %}
+            <div class="ad-slide w-full">
+                <a href="{{ ad.link }}" target="_blank">
+                    <img src="{{ ad.image.url }}" alt="{{ ad.title }}" class="w-full h-full object-cover rounded-xl">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+<script>
+    $(document).ready(function () {
+        function initCarousel(containerId) {
+            const $container = $(`#${containerId}`);
+            const $slides = $container.find('.ad-slide');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                $slides.each(function (i) {
+                    $(this).toggleClass('hidden opacity-0', i !== index);
+                    $(this).toggleClass('opacity-100 transition-opacity duration-500', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % $slides.length;
+                showSlide(currentSlide);
+            }
+
+            if ($slides.length > 0) {
+                showSlide(currentSlide);
+                setInterval(nextSlide, 5000);
+            }
+        }
+
+        const carouselContainers = [
+            'article-recommendation-left',
+            'article-recommendation-right',
+            'article-recommendation-mobile'
+        ];
+        carouselContainers.forEach(initCarousel);
+    });
+</script>
+
+{% endblock %}
