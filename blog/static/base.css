@@ -16,16 +16,15 @@ body {
 }
 
 :root {
-    --primary-color: #030303;
-    --secondary-color-light: #FFFFFF;
-    --secondary-color-light-opacity: #b8b8b8d3;
-    --secondary-color-dark: #252525;
+    --primary-color: #E9E7E7;
+    --secondary-color-light: #353535;
+    --secondary-color-light-opacity: #505050d3;
+    --secondary-color-dark: #FFFFFF;
     --accent-color: #FAC08C;
     --accent-color-gradient: #c09067;
     --tertiary-color: #C2876B;
     --subcolor-dark: #0c0c0c;
 }
-
 
 ::-webkit-scrollbar {
     background: transparent;

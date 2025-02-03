@@ -26,11 +26,11 @@
         {% endif %}
 
         <section class="py-6 w-full flex flex-col justify-center items-center">
-            <header class="text-center mb-4 flex flex-col items-center">
-                <h1 class="text-3xl md:text-6xl text-[var(--accent-color)]">
+            <header class="text-center flex flex-col items-center">
+                <h1 class="text-3xl md:text-6xl text-[var(--subcolor-dark)]">
                     Entre em <b>Contato Conosco</b>
                 </h1>
-                <p class="text-sm sm:text-base lg:text-lg text-white mt-2 px-4 md:px-0 w-2/3">
+                <p class="text-sm sm:text-base lg:text-lg text-[var(--secondary-color-light)] mt-2 px-4 md:px-0 w-2/3">
                     Nossa equipe está pronta para esclarecer suas dúvidas e oferecer o suporte necessário.
                 </p>
             </header>
@@ -40,27 +40,27 @@
                 {{ form.non_field_errors }}
 
                 <div class="mb-4">
-                    <label for="name" class="block text-sm text-white mb-2">Seu Nome</label>
+                    <label for="name" class="block text-sm text-[var(--secondary-color-light)] mb-2">Seu Nome</label>
                     {{ form.name }}
                 </div>
 
                 <div class="mb-4">
-                    <label for="email" class="block text-sm text-white mb-2">Seu E-mail</label>
+                    <label for="email" class="block text-sm text-[var(--secondary-color-light)] mb-2">Seu E-mail</label>
                     {{ form.email }}
                 </div>
 
                 <div class="mb-4">
-                    <label for="phone" class="block text-sm text-white mb-2">Seu Telefone</label>
+                    <label for="phone" class="block text-sm text-[var(--secondary-color-light)] mb-2">Seu Telefone</label>
                     {{ form.phone }}
                 </div>
 
                 <div class="mb-4">
-                    <label for="subject" class="block text-sm text-white mb-2">Assunto</label>
+                    <label for="subject" class="block text-sm text-[var(--secondary-color-light)] mb-2">Assunto</label>
                     {{ form.subject }}
                 </div>
 
                 <div class="mb-4">
-                    <label for="message" class="block text-sm text-white mb-2">Mensagem</label>
+                    <label for="message" class="block text-sm text-[var(--secondary-color-light)] mb-2">Mensagem</label>
                     {{ form.message }}
                 </div>
 

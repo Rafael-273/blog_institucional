@@ -1,5 +1,5 @@
 {% load static %}
-<header class="bg-transparent w-full transition duration-800 ease-in-out fixed left-0 z-50" id="navbar" style="top: -2px;">
+<header class="{% if request.resolver_match.view_name == 'home' %} bg-transparent {% else %} bg-[var(--subcolor-dark)] {% endif %} w-full transition duration-800 ease-in-out fixed left-0 z-50" id="navbar" style="top: -2px;">
     <nav class="container mx-auto flex justify-between items-center p-4 h-24">
         <button id="menu-toggle" class="flex items-center text-4xl md:hidden focus:outline-none ml-2">
             <ion-icon name="menu-outline" style="color: var(--secondary-color-light);"></ion-icon>
@@ -16,12 +16,12 @@
 
         <div class="hidden md:flex md:flex-grow md:items-center md:justify-between">
             <ul class="flex space-x-12 mx-auto">
-                <li><a href="{% url 'home' %}" class="font-semibold  text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Início</a></li>
-                <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Áreas de Atuação</a></li>
-                <li><a href="" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Notícias</a></li>
-                <li><a href="{% url 'articles' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Blog</a></li>
-                <li><a href="{% url 'about' %}" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Sobre Nós</a></li>
-                <li><a href="{% url 'contact' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Contato</a></li>
+                <li><a href="{% url 'home' %}" class="font-semibold  text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Início</a></li>
+                <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Áreas de Atuação</a></li>
+                <li><a href="" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Notícias</a></li>
+                <li><a href="{% url 'articles' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Blog</a></li>
+                <li><a href="{% url 'about' %}" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Sobre Nós</a></li>
+                <li><a href="{% url 'contact' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Contato</a></li>
             </ul>
         </div>
 
@@ -44,32 +44,38 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    function updateNavbarColor() {
-        if (!$('#mobile-menu').hasClass('hidden') || $(window).scrollTop() > 50) {
-            $('#navbar').css('background', 'var(--subcolor-dark)');
-        } else {
-            $('#navbar').css('background', 'transparent');
-        }
-    }
-
-    $('#menu-toggle').on('click', function() {
-        $('#mobile-menu').toggleClass('hidden');
-        updateNavbarColor();
-    });
-
-    $(document).on('click', function(event) {
-        if (!$(event.target).closest('#mobile-menu, #menu-toggle').length) {
-            $('#mobile-menu').addClass('hidden');
-            updateNavbarColor();
-        }
-    });
-
-    $(window).on('scroll', function() {
-        updateNavbarColor();
-    });
-
     $(document).ready(function() {
+        var isHome = "{{ request.resolver_match.view_name }}" === "home";
+
+        function updateNavbarColor() {
+            if (!isHome) {
+                $('#navbar').removeClass('bg-transparent').addClass('bg-[var(--subcolor-dark)]');
+                return;
+            }
+
+            if (!$('#mobile-menu').hasClass('hidden') || $(window).scrollTop() > 50) {
+                $('#navbar').removeClass('bg-transparent').addClass('bg-[var(--subcolor-dark)]');
+            } else {
+                $('#navbar').removeClass('bg-[var(--subcolor-dark)]').addClass('bg-transparent');
+            }
+        }
+
+        $('#menu-toggle').on('click', function() {
+            $('#mobile-menu').toggleClass('hidden');
+            updateNavbarColor();
+        });
+
+        $(document).on('click', function(event) {
+            if (!$(event.target).closest('#mobile-menu, #menu-toggle').length) {
+                $('#mobile-menu').addClass('hidden');
+                updateNavbarColor();
+            }
+        });
+
+        $(window).on('scroll', function() {
+            updateNavbarColor();
+        });
+
         updateNavbarColor();
     });
-
 </script>
