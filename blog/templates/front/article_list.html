@@ -17,7 +17,7 @@ Blog
 {% block content %}
 <div class="flex-grow content container mx-auto my-8 flex flex-col justify-center items-center mt-32">
     <h1 class="text-3xl md:text-4xl lg:text-5xl mb-6 px-6 md:p-6 text-center">
-        Nosso <b>Blog</b>
+        {% if is_new == 'true' %} Nossas <b>Notícias</b> {% else %} Nosso <b>Blog</b> {% endif %}
     </h1>
 
     <form method="GET" action="{% url 'articles' %}" class="w-full">
@@ -25,7 +25,7 @@ Blog
             <input 
                 type="text" 
                 name="q" 
-                placeholder="Buscar notícias" 
+                placeholder="Buscar" 
                 value="{{ query }}" 
                 class="p-2 border border-gray-300 rounded-md w-full"
             >

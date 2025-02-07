@@ -18,8 +18,8 @@
             <ul class="flex space-x-12 mx-auto">
                 <li><a href="{% url 'home' %}" class="font-semibold  text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Início</a></li>
                 <li><a href="" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Áreas de Atuação</a></li>
-                <li><a href="" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Notícias</a></li>
-                <li><a href="{% url 'articles' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Blog</a></li>
+                <li><a href="{% url 'articles_filtered' is_new='false' %}" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Blog</a></li>
+                <li><a href="{% url 'articles_filtered' is_new='true' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Notícias</a></li>
                 <li><a href="{% url 'about' %}" class="font-semibold text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Sobre Nós</a></li>
                 <li><a href="{% url 'contact' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Contato</a></li>
             </ul>

@@ -31,11 +31,11 @@ class ArticleListView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q', '')
-        category_slug = self.request.GET.get('category', '')
+        is_news = self.kwargs.get('is_new')
         queryset = Article.objects.all()
 
-        if category_slug:
-            queryset = queryset.filter(categories__slug=category_slug)
+        if is_news in ['true', 'false']:
+            queryset = queryset.filter(is_news=is_news == 'true')
 
         if query:
             queryset = queryset.filter(Q(title__icontains=query) | Q(subtitle__icontains=query))
@@ -46,6 +46,7 @@ class ArticleListView(ListView):
         context = super().get_context_data(**kwargs)
         context['query'] = self.request.GET.get('q', '')
         context['selected_category'] = self.request.GET.get('category', '')
+        context['is_new'] = self.kwargs.get('is_new', None) 
         return context
 
 

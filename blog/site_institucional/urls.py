@@ -10,6 +10,7 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('artigo/<slug:slug>/', ArticleDetailView.as_view(), name='article_detail'),
     path('artigos/', ArticleListView.as_view(), name='articles'),
+    path('artigos/<str:is_new>/', ArticleListView.as_view(), name='articles_filtered'),
     path('sobre_nos/', AboutPageView.as_view(), name='about'),
     path('contato/', ContactView.as_view(), name='contact'),
     path('control/', AdminLoginView.as_view(), name='admin_login'),
