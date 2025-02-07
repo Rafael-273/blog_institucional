@@ -5,14 +5,14 @@ from ._base import BaseModel
 
 
 class Article(BaseModel):
-    title = models.CharField(max_length=200, verbose_name="Title")
+    title = models.CharField(max_length=200, unique=True, verbose_name="Title")
     subtitle = models.CharField(max_length=200, verbose_name="Subtitle")
     slug = models.SlugField(unique=True, blank=True, max_length=200)
     content = models.TextField(verbose_name="Content")
     cover = models.ImageField(upload_to='article_covers/', verbose_name="Cover Image")
     cover_caption = models.CharField(max_length=200, blank=True, null=True, verbose_name="Cover Caption")
     author = models.CharField(max_length=100)
-    published = models.BooleanField(default=False, verbose_name="Published")
+    is_news = models.BooleanField(default=False, verbose_name="is_news")
 
     def save(self, *args, **kwargs):
         if not self.slug:

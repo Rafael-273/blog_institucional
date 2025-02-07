@@ -2,4 +2,4 @@
 .env
 __pycache__/
 .vscode/
-/project/media
+/blog/media

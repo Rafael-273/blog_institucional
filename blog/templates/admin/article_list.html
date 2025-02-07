@@ -1,0 +1,74 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+
+{% block title %}
+    Notícias | Admin
+{% endblock %}
+
+{% block content %}
+<section class="section-admin flex flex-col w-2/3 px-6 py-4 mt-24 ">    
+    <div class="flex justify-between items-center mb-6">
+        <a href="{% url 'admin_dashboard' %}" class="bg-[var(--tertiary-color)] text-white px-5 py-2 rounded-lg shadow-md transition-transform hover:scale-105">Voltar</a>
+        <h2 class="text-5xl font-semibold text-[var(--secondary-color-light)]">Lista <b class="text-[var(--tertiary-color)]">{% if is_new_filter %} de Notícias {% else %} de Artigos {% endif %}</b></h2>
+        {% if is_new_filter %}
+            <a href="{% url 'admin_article_create' is_new='true' %}" class="bg-[var(--tertiary-color)] text-white px-5 py-2 rounded-lg shadow-md transition-transform hover:scale-105">Adicionar nova notícia</a>
+        {% else %}
+            <a href="{% url 'admin_article_create' is_new='false' %}" class="bg-[var(--tertiary-color)] text-white px-5 py-2 rounded-lg shadow-md transition-transform hover:scale-105">Adicionar novo artigo</a>
+        {% endif %}
+    </div>
+
+    {% if messages %}
+        <div class="mb-6">
+            {% for message in messages %}
+                <div class="text-white px-4 py-3 rounded-lg shadow-md bg-[var(--tertiary-color)]" id="message-{{ forloop.counter }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="justify-center items-center gap-6 p-6 bg-[var(--primary-color)] rounded-lg shadow-lg overflow-x-hidden overflow-y-auto max-h-[65vh] space-y-4">
+        {% for article in articles %}
+            <div class="bg-[var(--secondary-color-dark)] shadow-lg flex flex-col justify-between rounded-lg p-6 transition-transform cursor-pointer w-full">
+                <h3 class="text-xl font-semibold text-[var(--secondary-color-light)]">{{ article.title|truncatechars:70 }}</h3>
+                <h5 class="text-2sm text-[var(--secondary-color-light)] mb-3">{{ article.subtitle|truncatechars:70 }}</h5>
+                <div class="w-full flex gap-3 text-center">
+                    <a href="{% url 'admin_article_edit' article.pk is_new_filter %}" class="w-1/2 bg-[var(--secondary-color-light)] text-white px-4 py-2 rounded-lg transition-opacity hover:opacity-80">Editar</a>
+                    <button type="button" class="bg-[var(--tertiary-color)] w-1/2 text-white px-4 py-2 rounded-lg transition-opacity hover:opacity-80" onclick="openDeleteModal({{ article.id }})">Deletar</button>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-gray-500 col-span-full text-center">{% if is_new_filter %} Nenhuma Notícia encontrada{% else %} Nenhum Artigo encontrado{% endif %}</p>
+        {% endfor %}
+    </div>
+
+    <div id="deleteModal" class="hidden fixed inset-0 bg-[var(--secondary-color-light-opacity)] flex items-center justify-center z-50">
+        <div class="bg-[var(--secondary-color-dark)] p-8 rounded-lg shadow-lg w-96 flex flex-col items-center text-center">
+            <h2 class="text-lg font-bold text-[var(--secondary-color-light)] mb-4">Confirmar Deleção</h2>
+            <p class="text-[var(--secondary-color-light)] mb-6">Você tem certeza que deseja deletar {% if is_new_filter %} esta notícia?{% else %} este artigo?{% endif %}</p>
+            <form id="deleteForm" class="w-full flex gap-2" method="post">
+                {% csrf_token %}
+                <button type="submit" class="w-1/2 bg-[var(--tertiary-color)] text-white px-5 py-2 rounded-lg shadow-md transition-transform">Deletar</button>
+                <button type="button" onclick="toggleModal('deleteModal')" class="w-1/2 bg-gray-500 text-white px-5 py-2 rounded-lg shadow-md transition-transform">Cancelar</button>
+            </form>
+        </div>
+    </div>    
+</section>
+
+<script>
+    function openDeleteModal(articleId) {
+        toggleModal('deleteModal');
+        document.getElementById('deleteForm').action = `/control/articles/delete/${articleId}/`;
+    }
+
+    function toggleModal(modalId) {
+        document.getElementById(modalId).classList.toggle('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('[id^="message-"]').forEach((message) => {
+            setTimeout(() => message.style.display = 'none', 5000);
+        });
+    });
+</script>
+{% endblock %}

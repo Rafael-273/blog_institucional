@@ -7,34 +7,30 @@ from django.utils.text import slugify
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ['title', 'subtitle', 'author', 'cover', 'cover_caption']
-        labels = {
-            'title': 'Título',
-            'subtitle': 'Subtítulo',
-            'author': 'Autor',
-            'cover': 'Capa',
-            'cover_caption': 'Legenda da Capa',
-        }
+        fields = ['title', 'subtitle', 'author', 'cover', 'cover_caption', 'content']
         widgets = {
             'title': forms.TextInput(attrs={
-                'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
+                'class': 'w-full px-3 py-2 border rounded-lg',
                 'placeholder': 'Digite o título do artigo'
             }),
             'subtitle': forms.TextInput(attrs={
-                'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
+                'class': 'w-full px-3 py-2 border rounded-lg',
                 'placeholder': 'Digite o subtítulo do artigo'
             }),
             'cover_caption': forms.TextInput(attrs={
-                'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
+                'class': 'w-full px-3 py-2 border rounded-lg',
                 'placeholder': 'Digite a legenda da capa'
             }),
             'author': forms.TextInput(attrs={
-                'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
+                'class': 'w-full px-3 py-2 border rounded-lg',
                 'placeholder': 'Digite o nome do autor'
             }),
             'cover': forms.ClearableFileInput(attrs={
-                'class': 'w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent hover:bg-gray-50 transition duration-200 ease-in-out'
+                'class': 'w-full px-4 py-2 border rounded-lg text-gray-700 bg-white transition duration-200'
             }),
+            'content': forms.Textarea(attrs={
+                'class': 'w-full px-4 py-2 border rounded-lg text-gray-700 bg-white transition duration-200'
+            }),            
         }
 
     def __init__(self, *args, **kwargs):
@@ -44,6 +40,9 @@ class ArticleForm(forms.ModelForm):
         title = self.cleaned_data.get('title')
         if len(title) < 5:
             raise forms.ValidationError("O título deve ter pelo menos 5 caracteres.")
+
+        if Article.objects.filter(title=title).exclude(pk=self.instance.pk).exists():
+            raise forms.ValidationError("Já existe um artigo com este título. Escolha um título diferente.")
         return title
 
     def save(self, commit=True):

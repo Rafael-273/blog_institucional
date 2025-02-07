@@ -8,26 +8,26 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mx-auto mt-8">
+<div class="container mx-auto mt-24 justify-center">
     <h1 class="text-3xl text-center mb-6">Bem-vindo à <b>Área Administrativa</b></h1>
     
     <div class="flex flex-col justify-center items-center gap-4">
         <div class="bg-white shadow-lg rounded-lg p-6 text-center w-1/3">
             <h2 class="text-2xl font-semibold">Gerenciar Notícias</h2>
             <p>Adicione, edite ou visualize notícias do blog.</p>
-            <a href="" class="bg-[var(--accent-color)] text-[var(--secondary-color-light)] text-center w-full mt-2 inline-block py-2 px-4 rounded transition duration-300">Ir para Notícias</a>
+            <a href="{% url 'admin_articles_filtered' is_new='true' %}" class="bg-[var(--tertiary-color)] text-white text-center w-full mt-2 inline-block py-2 px-4 rounded transition duration-300">Ver Notícias</a>
         </div>
 
         <div class="bg-white shadow-lg rounded-lg p-6 text-center w-1/3">
             <h2 class="text-2xl font-semibold">Gerenciar Blog</h2>
             <p>Adicione, edite ou visualize Blog do blog.</p>
-            <a href="" class="bg-[var(--accent-color)] text-[var(--secondary-color-light)] text-center w-full mt-2 inline-block py-2 px-4 rounded transition duration-300">Ir para Blog</a>
+            <a href="{% url 'admin_articles_filtered' is_new='false' %}" class="bg-[var(--tertiary-color)] text-white text-center w-full mt-2 inline-block py-2 px-4 rounded transition duration-300">Ver Blog</a>
         </div>
         
         <div class="bg-white shadow-lg rounded-lg p-6 text-center w-1/3">
             <h2 class="text-2xl font-semibold">Gerenciar Contatos</h2>
             <p>Visualize informações de contato</p>
-            <a href="" class="bg-[var(--accent-color)] text-[var(--secondary-color-light)] text-center w-full mt-2 inline-block py-2 px-4 rounded transition duration-300">Ir para Contatos</a>
+            <a href="{% url 'admin_contact_list' %}" class="bg-[var(--tertiary-color)] text-white text-center w-full mt-2 inline-block py-2 px-4 rounded transition duration-300">Ir para Contatos</a>
         </div>
     </div>
 </div>

@@ -2,11 +2,11 @@ from django.urls import reverse
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
-from ..forms.login import EmailAuthenticationForm
+from ..forms.login import AuthenticationForm
 
 
 class AdminLoginView(LoginView):
-    authentication_form = EmailAuthenticationForm
+    authentication_form = AuthenticationForm
     template_name = 'admin/login.html'
 
     def get_success_url(self):
@@ -17,6 +17,6 @@ class AdminLoginView(LoginView):
         return super().form_invalid(form) 
 
 
-class LogoutView(LogoutView):
+class AdminLogoutView(LogoutView):
     next_page = reverse_lazy('admin_login')
 

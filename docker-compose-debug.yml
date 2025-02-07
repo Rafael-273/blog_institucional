@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  pine-studio-database: 
+  aline-capocci-database : 
     image: postgres:latest 
-    container_name: pine-studio-database 
+    container_name: aline-capocci-database  
     ports:
       - "5432:${DB_PORT}"
     environment:
@@ -12,14 +12,14 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     restart: always
     networks:
-      - pine-studio-network
+      - aline-capocci-network
 
   web-project:
     hostname: "${HOSTNAME}"
     build:
       context: .
       dockerfile: Dockerfile
-    working_dir: /usr/src/pine_studio
+    working_dir: /usr/src/blog
     command: [
         "sh",
         "-c", 
@@ -28,7 +28,7 @@ services:
         ./manage.py runserver ${HOSTNAME}:${PORT}"
     ]
     volumes:
-      - ./pine_studio/:/usr/src/pine_studio
+      - ./blog/:/usr/src/blog
     ports:
       - "${PORT}:${PORT}"
       - "3000:3000"
@@ -38,10 +38,10 @@ services:
     env_file:
       .env
     depends_on:
-      - pine-studio-database
+      - aline-capocci-database 
     networks:
-      - pine-studio-network
+      - aline-capocci-network
 
 networks:
-    pine-studio-network:
+    aline-capocci-network:
         external: true

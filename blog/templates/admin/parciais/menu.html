@@ -1,0 +1,37 @@
+{% load static %}
+<header class="bg-[var(--subcolor-dark)] w-full transition duration-800 ease-in-out z-50 top-0" id="navbar">
+    <nav class="container mx-auto flex justify-between items-center p-4 h-24">
+        <button id="menu-toggle" class="flex items-center text-4xl md:hidden focus:outline-none ml-2">
+            <ion-icon name="menu-outline" style="color: var(--secondary-color-light);"></ion-icon>
+        </button>
+
+        <a href="{% url 'home' %}" class="md:flex-grow-0 mx-auto md:mx-0 md:ml-4 min-w-[150px]">
+            <img class="hidden md:flex w-8 md:w-20 mx-auto md:mx-0" src="{% static 'assets/logo.png' %}" alt="logo">
+            <img class="flex md:hidden w-24 md:w-8 mx-auto md:mx-0" src="{% static 'assets/logo.png' %}" alt="logo">
+        </a>
+
+        <!-- Botão de Logout no Mobile -->
+        <form method="post" action="{% url 'logout' %}" class="md:hidden flex items-center">
+            {% csrf_token %}
+            <button type="submit">
+                <ion-icon name="log-out-outline" class="text-white text-3xl"></ion-icon>
+            </button>
+        </form>
+
+        <div class="hidden md:flex md:flex-grow md:items-center md:justify-between">
+        </div>
+
+        <!-- Botão de Logout no Desktop -->
+        <div class="hidden md:flex space-x-6">
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">
+                    <ion-icon name="log-out-outline" class="text-white mt-2 text-3xl"></ion-icon>
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <ul id="mobile-menu" class="md:hidden bg-[var(--subcolor-dark)] flex flex-col items-center space-y-6 mt-2 py-4 absolute w-full top-20 hidden p-4" style="z-index: 1;">
+    </ul>
+</header>
