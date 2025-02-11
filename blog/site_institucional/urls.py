@@ -5,12 +5,18 @@ from .views.contact import ContactView, AdminContactMessageListView, AdminContac
 from .views.article import ArticleListView, ArticleDetailView, AdminArticleCreateView, AdminArticleListView, AdminArticleUpdateView, AdminArticleDeleteView
 from .views.login import AdminLoginView, AdminLogoutView
 from .views.dashboard import DashboardView
+from .views.activity_area import ExecucaoPenaView, PrevidenciarioView, CriminalView, FamiliarView, CivelView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('artigo/<slug:slug>/', ArticleDetailView.as_view(), name='article_detail'),
     path('artigos/', ArticleListView.as_view(), name='articles'),
     path('artigos/<str:is_new>/', ArticleListView.as_view(), name='articles_filtered'),
+    path('area/execucao-pena/', ExecucaoPenaView.as_view(), name='execution_penalty'),
+    path('area/previdenciario/', PrevidenciarioView.as_view(), name='social_security'),
+    path('area/criminal/', CriminalView.as_view(), name='criminal_law'),
+    path('area/familiar/', FamiliarView.as_view(), name='family_law'),
+    path('area/civel/', CivelView.as_view(), name='civil_law'),
     path('sobre_nos/', AboutPageView.as_view(), name='about'),
     path('contato/', ContactView.as_view(), name='contact'),
     path('control/', AdminLoginView.as_view(), name='admin_login'),
