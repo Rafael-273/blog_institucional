@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Direito Cível{% endblock %}
+{% block title %}Direito Previdenciário{% endblock %}
 
 {% block content %}
 <section class="flex-grow content container mx-auto my-8 flex flex-col justify-center items-center mt-28">
     <div class="container mx-auto p-6 flex flex-col md:flex-row items-center gap-6">
         <div class="md:w-1/2">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">Direito Cível</h1>
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Direito Previdenciário</h1>
             <hr class="w-16 border-b-2 border-yellow-500 mb-4">
             <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                O Direito Cível abrange uma ampla gama de questões jurídicas, incluindo contratos, responsabilidade cível, 
-                direito de família e sucessões. Nossa equipe atua de forma estratégica para proteger os interesses dos nossos clientes, 
-                garantindo que seus direitos sejam assegurados.
+                O Direito Previdenciário é o ramo do direito que lida com a proteção social dos cidadãos, abrangendo temas como aposentadoria, 
+                pensão por morte, auxílio-doença, entre outros benefícios fornecidos pelo sistema previdenciário. Nossa equipe oferece 
+                assessoria especializada para garantir que seus direitos sejam reconhecidos e que você receba o benefício adequado em tempo hábil.
             </p>
             <div class="flex gap-4">
-                <a href="{% url 'contact' %}" class="px-6 py-2 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-900">
+                <a href="{% url 'contact' %}" class="px-6 py-2 bg-[var(--subcolor-dark)] text-white rounded-lg shadow-md hover:bg-gray-900">
                     Entre em contato
                 </a>
                 <a href="https://wa.me/seu-numero" target="_blank"
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="cover flex-1 hidden md:flex justify-center items-center overflow-hidden h-64 lg:h-[50vh] rounded-lg">
-            <img src="{% static 'assets/direito_civel.jpg' %}" alt="Imagem sobre a organização" class="cover-image">
+            <img src="{% static 'assets/direito_previdenciario.jpg' %}" alt="Imagem sobre Direito Previdenciário" class="cover-image">
         </div>
     </div>
 
@@ -33,8 +33,9 @@
         <h2 class="text-2xl font-bold text-gray-900 text-center">EXPERIÊNCIA E RESULTADOS COMPROVADOS</h2>
         <hr class="w-16 border-b-2 border-yellow-500 mx-auto my-4">
         <p class="text-lg text-gray-700 text-center leading-relaxed">
-            Atuamos há anos no setor jurídico com um histórico de sucesso e comprometimento com nossos clientes. Nossa equipe 
-            altamente qualificada está pronta para oferecer suporte especializado em todas as áreas do Direito Cível.
+            Com vasta experiência em Direito Previdenciário, nossa equipe oferece suporte jurídico completo para garantir que seus 
+            benefícios sejam concedidos corretamente, seja no planejamento de aposentadoria ou na busca de soluções para problemas com 
+            a concessão de benefícios.
         </p>
         <p class="text-center mt-4">
             Para mais informações sobre nosso escritório <a href="{% url 'about' %}" class="text-yellow-600 font-bold hover:underline">clique aqui</a>.

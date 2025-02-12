@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin 
 from django.views.generic import TemplateView, ListView, DeleteView, DetailView
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import redirect, get_object_or_404
@@ -46,30 +47,45 @@ class ContactView(TemplateView):
         return JsonResponse({'status': 'error', 'message': 'Dados inválidos.'}, status=400)
 
 
-class AdminContactMessageListView(ListView):
+class AdminContactMessageListView(LoginRequiredMixin, ListView):
     model = ContactMessage
     template_name = 'admin/contact_list.html'
     context_object_name = 'contacts'
     paginate_by = 10
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('admin_login')
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
 
 
-class AdminContactDetailView(DetailView):
+class AdminContactDetailView(LoginRequiredMixin, DetailView):
     model = ContactMessage
     template_name = "admin/contact_detail.html"
     context_object_name = "contact"
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('admin_login')
+        return super().dispatch(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
         id = self.kwargs.get("id")
         return get_object_or_404(ContactMessage, id=id)
     
 
-class AdminContactDeleteView(DeleteView):
+class AdminContactDeleteView(LoginRequiredMixin, DeleteView):
     model = ContactMessage
     success_url = reverse_lazy('admin_contacts')
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('admin_login')
+        return super().dispatch(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
         id = self.kwargs.get("id")

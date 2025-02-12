@@ -1,50 +1,54 @@
 {% extends 'base_admin.html' %}
-{%  load static %}
+{% load static %}
 
 {% block title %}
-
     Login
-
 {% endblock %}
 
 {% block content %}
-
-<div class="bg-[var(--secondary-color-light)] shadow-lg rounded-lg p-8 w-full max-w-md">
-    <a href="{% url 'home' %}" class="flex justify-center mb-6">
-        <img class="logo w-20 h-20" src="{% static 'assets/logo.png' %}" alt="Logo">
-    </a>
-    <h2 class="text-2xl font-bold text-center mb-6 text-white">Área Administrativa</h2>
-    <form method="post" action="">
-        {% csrf_token %}
-        <div class="mb-4">
-            <label for="username" class="block text-white font-semibold mb-2">Username</label>
-            {{ form.username }}
-        </div>
-        <div class="mb-6">
-            <label for="password" class="block text-white font-semibold mb-2">Senha</label>
-            {{ form.password }}
-        </div>
-        {% if messages %}
-            <div class="fixed top-4 right-4 space-y-2">
-                {% for message in messages %}
-                    <div class="p-4 rounded shadow-lg
-                                {% if message.tags == 'error' %}
-                                    bg-red-500 text-white border border-red-700
-                                {% elif message.tags == 'success' %}
-                                    bg-green-500 text-white border border-green-700
-                                {% elif message.tags == 'warning' %}
-                                    bg-yellow-500 text-gray-800 border border-yellow-700
-                                {% else %}
-                                    bg-blue-500 text-white border border-blue-700
-                                {% endif %}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
+<div class="min-h-screen flex items-center justify-center px-4">
+    <div class="bg-[var(--secondary-color-light)] shadow-lg rounded-lg p-8 w-full max-w-sm sm:max-w-md">
+        <a href="{% url 'home' %}" class="flex justify-center mb-6">
+            <img class="w-20 h-20" src="{% static 'assets/logo.png' %}" alt="Logo">
+        </a>
+        <h2 class="text-2xl font-bold text-center mb-6 text-white">Área Administrativa</h2>
+        
+        <form method="post" action="" class="space-y-4">
+            {% csrf_token %}
+            
+            <div>
+                <label for="username" class="block text-white font-semibold mb-1">Usuário</label>
+                {{ form.username }}
             </div>
-        {% endif %}
-        <button type="submit" class="w-full bg-[var(--tertiary-color)] text-white font-semibold py-2 rounded-md transition duration-300">Entrar</button>
-    </form>
+
+            <div>
+                <label for="password" class="block text-white font-semibold mb-1">Senha</label>
+                {{ form.password }}
+            </div>
+
+            {% if messages %}
+                <div class="fixed top-4 right-4 space-y-2 z-50">
+                    {% for message in messages %}
+                        <div class="p-4 rounded shadow-lg transition transform duration-300 ease-in-out
+                                    {% if message.tags == 'error' %}
+                                        bg-red-500 text-white border border-red-700
+                                    {% elif message.tags == 'success' %}
+                                        bg-green-500 text-white border border-green-700
+                                    {% elif message.tags == 'warning' %}
+                                        bg-yellow-500 text-gray-800 border border-yellow-700
+                                    {% else %}
+                                        bg-blue-500 text-white border border-blue-700
+                                    {% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <button type="submit" class="w-full bg-[var(--tertiary-color)] text-white font-semibold py-2 rounded-md hover:bg-opacity-90 transition duration-300">
+                Entrar
+            </button>
+        </form>
+    </div>
 </div>
-
-
 {% endblock %}

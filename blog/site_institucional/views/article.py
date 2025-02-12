@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
@@ -50,11 +51,16 @@ class ArticleListView(ListView):
         return context
 
 
-class AdminArticleListView(ListView):
+class AdminArticleListView(LoginRequiredMixin, ListView):
     model = Article
     template_name = 'admin/article_list.html'
     context_object_name = 'articles'
     paginate_by = 10
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('admin_login')
+        return super().dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
         is_new = self.kwargs.get('is_new', None)
@@ -76,10 +82,15 @@ class AdminArticleListView(ListView):
         return context
 
 
-class AdminArticleCreateView(CreateView):
+class AdminArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     form_class = ArticleForm
     template_name = 'admin/create/article_create.html'
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('admin_login')
+        return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         is_new = self.kwargs.get('is_new', 'false')
@@ -101,10 +112,15 @@ class AdminArticleCreateView(CreateView):
         return context
 
 
-class AdminArticleUpdateView(UpdateView):
+class AdminArticleUpdateView(LoginRequiredMixin, UpdateView):
     model = Article
     form_class = ArticleForm
     template_name = 'admin/edit/article_edit.html'
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('admin_login')
+        return super().dispatch(request, *args, **kwargs)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -125,9 +141,14 @@ class AdminArticleUpdateView(UpdateView):
         return redirect(reverse('admin_articles_filtered', kwargs={'is_new': is_new}))
 
 
-class AdminArticleDeleteView(DeleteView):
+class AdminArticleDeleteView(LoginRequiredMixin, DeleteView):
     model = Article
     success_url = reverse_lazy('admin_articles')
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('admin_login')
+        return super().dispatch(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
         id = self.kwargs.get("id")

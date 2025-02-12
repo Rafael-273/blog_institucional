@@ -6,10 +6,14 @@
 {% endblock %}
 
 {% block content %}
-<section class="section-admin flex flex-col w-2/3 px-6 py-4 mt-24">
-    <div class="flex justify-between items-center mb-6">
-        <a href="{% url 'admin_dashboard' %}" class="bg-[var(--tertiary-color)] text-white px-5 py-2 rounded-lg shadow-md transition-transform hover:scale-105">Voltar</a>
-        <h2 class="text-5xl font-semibold text-[var(--secondary-color-light)]">Lista de <b class="text-[var(--tertiary-color)]">Contatos</b></h2>
+<section class="section-admin flex flex-col w-full max-w-4xl px-4 md:px-6 py-3 md:py-4 mt-24 mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+        <a href="{% url 'admin_dashboard' %}" class="bg-[var(--tertiary-color)] text-white px-5 py-2 rounded-lg shadow-md transition-transform hover:scale-105 hidden md:block">
+            Voltar
+        </a>
+        <h2 class="text-3xl md:text-5xl font-semibold text-[var(--secondary-color-light)] text-center md:text-left">
+            Lista de <b class="text-[var(--tertiary-color)]">Contatos</b>
+        </h2>
         <div></div>
     </div>
 
@@ -23,15 +27,19 @@
         </div>
     {% endif %}
 
-    <div class="flex flex-col justify-center items-center gap-6 overflow-y-auto max-h-[80vh] p-6 bg-[var(--primary-color)] rounded-lg shadow-lg overflow-x-hidden">
+    <div class="flex flex-col justify-center items-center gap-6 overflow-y-auto max-h-[80vh] p-4 md:p-6 bg-[var(--primary-color)] rounded-lg shadow-lg w-full">
         {% for contact in contacts %}
-            <div class="bg-[var(--secondary-color-dark)] shadow-lg flex flex-col justify-between rounded-lg p-6 transition-transform cursor-pointer w-full">
-                <h3 class="text-3xl font-semibold text-[var(--secondary-color-light)]">{{ contact.name }}</h3>
-                <h5 class="text-2sm text-[var(--secondary-color-light)]">{{ contact.email }}</h5>
+            <div class="bg-[var(--secondary-color-dark)] shadow-lg flex flex-col justify-between rounded-lg p-4 md:p-6 transition-transform cursor-pointer w-full">
+                <h3 class="text-lg md:text-3xl font-semibold text-[var(--secondary-color-light)]">{{ contact.name }}</h3>
+                <h5 class="text-sm md:text-2sm text-[var(--secondary-color-light)]">{{ contact.email }}</h5>
                 <p class="text-[var(--secondary-color-light)]">{{ contact.message|truncatechars:100 }}</p>
-                <div class="w-full flex gap-3 text-center mt-4">
-                    <a href="{% url 'admin_contact_detail' contact.id %}" class="w-1/2 bg-[var(--secondary-color-light)] text-white px-4 py-2 rounded-lg transition-opacity hover:opacity-80">Visualizar</a>
-                    <button type="button" class="bg-[var(--tertiary-color)] w-1/2 text-white px-4 py-2 rounded-lg transition-opacity hover:opacity-80" onclick="openDeleteModal({{ contact.id }})">Deletar</button>
+                <div class="w-full flex flex-col md:flex-row gap-3 text-center mt-4">
+                    <a href="{% url 'admin_contact_detail' contact.id %}" class="w-full md:w-1/2 bg-[var(--secondary-color-light)] text-white px-4 py-2 rounded-lg transition-opacity hover:opacity-80">
+                        Visualizar
+                    </a>
+                    <button type="button" class="w-full md:w-1/2 bg-[var(--tertiary-color)] text-white px-4 py-2 rounded-lg transition-opacity hover:opacity-80" onclick="openDeleteModal({{ contact.id }})">
+                        Deletar
+                    </button>
                 </div>
             </div>
         {% empty %}
@@ -40,13 +48,17 @@
     </div>
 
     <div id="deleteModal" class="hidden fixed inset-0 bg-[var(--secondary-color-light-opacity)] flex items-center justify-center z-50">
-        <div class="bg-[var(--secondary-color-dark)] p-8 rounded-lg shadow-lg w-96 flex flex-col items-center text-center">
+        <div class="bg-[var(--secondary-color-dark)] p-6 md:p-8 rounded-lg shadow-lg w-80 md:w-96 flex flex-col items-center text-center">
             <h2 class="text-lg font-bold text-[var(--secondary-color-light)] mb-4">Confirmar Deleção</h2>
             <p class="text-[var(--secondary-color-light)] mb-6">Você tem certeza que deseja deletar esta mensagem?</p>
-            <form id="deleteForm" class="w-full flex gap-2" method="post">
+            <form id="deleteForm" class="w-full flex flex-col md:flex-row gap-2" method="post">
                 {% csrf_token %}
-                <button type="submit" class="w-1/2 bg-[var(--tertiary-color)] text-white px-5 py-2 rounded-lg shadow-md transition-transform">Deletar</button>
-                <button type="button" onclick="toggleModal('deleteModal')" class="w-1/2 bg-gray-500 text-white px-5 py-2 rounded-lg shadow-md transition-transform">Cancelar</button>
+                <button type="submit" class="w-full md:w-1/2 bg-[var(--tertiary-color)] text-white px-5 py-2 rounded-lg shadow-md transition-transform">
+                    Deletar
+                </button>
+                <button type="button" onclick="toggleModal('deleteModal')" class="w-full md:w-1/2 bg-gray-500 text-white px-5 py-2 rounded-lg shadow-md transition-transform">
+                    Cancelar
+                </button>
             </form>
         </div>
     </div>    
