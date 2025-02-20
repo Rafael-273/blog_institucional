@@ -2,7 +2,7 @@
 <header class="{% if request.resolver_match.view_name == 'home' %} bg-transparent {% else %} bg-[var(--subcolor-dark)] {% endif %} w-full transition duration-800 ease-in-out fixed left-0 z-50" id="navbar" style="top: -2px;">
     <nav class="container mx-auto flex justify-between items-center p-4 h-24">
         <button id="menu-toggle" class="flex items-center text-4xl md:hidden focus:outline-none ml-2">
-            <ion-icon name="menu-outline" style="color: var(--secondary-color-light);"></ion-icon>
+            <ion-icon name="menu-outline" style="color: var(--primary-color);"></ion-icon>
         </button>
 
         <a href="{% url 'home' %}" class="md:flex-grow-0 mx-auto md:mx-0 md:ml-4 min-w-[150px]">
@@ -11,7 +11,7 @@
         </a>
 
         <a href="https://www.instagram.com/alinecapocci/" target="_blank" class="md:hidden text-3xl mr-2 flex justify-center">
-            <ion-icon name="logo-instagram" style="color: var(--secondary-color-light);"></ion-icon>
+            <ion-icon name="logo-instagram" style="color: var(--primary-color);"></ion-icon>
         </a>
 
         <div class="hidden md:flex md:flex-grow md:items-center md:justify-between">
@@ -46,25 +46,25 @@
     </nav>
 
     <ul id="mobile-menu" class="md:hidden bg-[var(--subcolor-dark)] flex flex-col items-center space-y-6 mt-2 py-4 absolute w-full top-20 hidden p-4" style="z-index: 1;">
-        <li class="p-2"><a href="{% url 'home' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Início</a></li>
+        <li class="p-2"><a href="{% url 'home' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Início</a></li>
 
-        <li class="p-2">
-            <button id="areas-toggle" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">
+        <li class="py-2 w-full flex flex-col items-center">
+            <button id="areas-toggle" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">
                 Áreas de Atuação ▾
             </button>
-            <ul id="areas-submenu" class="hidden space-y-2 mt-2">
-                <li><a href="{% url 'execution_penalty' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Execução de Pena</a></li>
-                <li><a href="{% url 'social_security' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Previdenciário</a></li>
-                <li><a href="{% url 'criminal_law' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Direito Criminal</a></li>
-                <li><a href="{% url 'family_law' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Direito Familiar</a></li>
-                <li><a href="{% url 'civil_law' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Direito Cível</a></li>
+            <ul id="areas-submenu" class="hidden flex flex-col items-center w-full py-8 gap-6 space-y-2 mt-2" style="background-color: var(--secondary-color-light);">
+                <li><a href="{% url 'execution_penalty' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Execução de Pena</a></li>
+                <li><a href="{% url 'social_security' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Previdenciário</a></li>
+                <li><a href="{% url 'criminal_law' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Direito Criminal</a></li>
+                <li><a href="{% url 'family_law' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Direito Familiar</a></li>
+                <li><a href="{% url 'civil_law' %}" class="block text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Direito Cível</a></li>
             </ul>
         </li>
 
-        <li class="p-2"><a href="{% url 'articles' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Notícias</a></li>
-        <li class="p-2"><a href="{% url 'articles' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Blog</a></li>
-        <li class="p-2"><a href="{% url 'about' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Sobre Nós</a></li>
-        <li class="p-2"><a href="{% url 'contact' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--secondary-color-light);">Contato</a></li>
+        <li class="p-2"><a href="{% url 'articles' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Notícias</a></li>
+        <li class="p-2"><a href="{% url 'articles' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Blog</a></li>
+        <li class="p-2"><a href="{% url 'about' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Sobre Nós</a></li>
+        <li class="p-2"><a href="{% url 'contact' %}" class="text-[0.9rem] hover:text-black transition duration-500" style="color: var(--primary-color);">Contato</a></li>
     </ul>
 </header>
 
