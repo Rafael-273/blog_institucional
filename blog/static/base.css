@@ -6,13 +6,8 @@ body {
     overflow-x: hidden;
 }
 
-@font-face {
-    font-family: "Montserrat";
-    src: url("https://fonts.gstatic.com/s/montserrat/v28/JTURjIg1_i6t8kCHKm45_bZF3gnD-w.ttf") format("truetype"),
-         url("https://fonts.gstatic.com/s/montserrat/v28/JTURjIg1_i6t8kCHKm45_bZF3gxD-w.ttf") format("truetype"),
-         url("https://fonts.gstatic.com/s/montserrat/v28/JTURjIg1_i6t8kCHKm45_cJD3gnD-w.ttf") format("truetype"),
-         url("https://fonts.gstatic.com/s/montserrat/v28/JTURjIg1_i6t8kCHKm45_cJD3gxD-w.ttf") format("truetype");
-    font-display: swap;
+h2 {
+    font-family: 'Fromage', sans-serif;
 }
 
 :root {

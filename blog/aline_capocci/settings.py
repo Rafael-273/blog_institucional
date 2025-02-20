@@ -143,8 +143,8 @@ STORAGES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://pinestudio.com.br',
-    'https://www.pinestudio.com.br',
+    'https://capocciadv.com.br',
+    'https://www.capocciadv.com.br',
     'http://localhost:8000',
 ]
 

@@ -16,9 +16,9 @@ Blog
 
 {% block content %}
 <div class="flex-grow content container mx-auto my-8 flex flex-col justify-center items-center mt-32">
-    <h1 class="text-3xl md:text-4xl lg:text-5xl mb-6 px-6 md:p-6 text-center">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl mb-6 px-6 md:p-6 text-center">
         {% if is_new == 'true' %} Nossas <b>Notícias</b> {% else %} Nosso <b>Blog</b> {% endif %}
-    </h1>
+    </h2>
 
     <form method="GET" action="{% url 'articles' %}" class="w-full">
         <div class="search flex flex-col md:flex-row gap-2 md:mb-4 px-2 md:px-0">
@@ -46,7 +46,7 @@ Blog
                 
                 <div class="p-6 flex flex-col justify-between flex-grow text-center h-full">                        
                     <div class="space-y-4">
-                        <h2 class="text-2xl font-semibold text-gray-900">{{ article_item.title }}</h2>
+                        <h3 class="text-2xl font-semibold text-gray-900">{{ article_item.title }}</h3>
                         <p class="text-gray-600">{{ article_item.subtitle|truncatechars:70 }}</p>
                         
                         <div class="flex justify-center gap-2 items-center text-gray-500 text-sm">

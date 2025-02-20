@@ -16,12 +16,12 @@
 {% block content %}
 
 <section class="flex flex-col items-center">
-    <div class="first-container flex flex-col lg:flex-row justify-center md:justify-between gap-6 w-full min-h-screen bg-cover bg-center" style="background-image: url({% static 'assets/home_background.jpg' %});">
+    <div class="first-container flex flex-col lg:flex-row justify-center md:justify-between gap-2 w-full min-h-screen bg-black"  style="background-image: url({% static 'assets/home_background.jpg' %});">
         <div class="hidden lg:block lg:w-1/12"></div>
-    
-        <div class="w-full lg:w-3/4 flex flex-col gap-4 fade-in-up p-6 sm:p-8 justify-center items-start z-10">
-            <h2 class="text-white font-bold text-5xl sm:text-6xl lg:text-8xl w-full sm:w-4/5 lg:w-2/3">
-                Advocacia Especializada em Direito Criminal
+ 
+        <div class="w-full lg:w-4/5 flex flex-col gap-4 fade-in-up p-6 sm:p-8 justify-center items-start z-10">
+            <h2 class="text-white text-5xl sm:text-6xl lg:text-8xl w-full sm:w-4/5 lg:w-2/3">
+                ADVOCACIA ESPECIALIZADA EM <span style="color: #C89D3F;">DIREITO CRIMINAL</span>
             </h2>
             <h5 class="text-white text-2sm sm:text-lg lg:text-xl font-light w-full sm:w-3/4 lg:w-1/2">
                 Atuação na defesa criminal, <b>desde a prisão em flagrante até a execução penal</b>, incluindo pedidos de liberdade, audiências de custódia e acompanhamento em inquéritos.
@@ -38,18 +38,22 @@
             </div>
         </div>
     
+        <div class="hidden md:flex w-1/3 z-10 items-center justify-center mr-36">
+            <img class="flex w-full" src="{% static 'assets/logo.png' %}" alt="logo">
+        </div>
+        <div class="absolute inset-0 bg-black opacity-80 md:opacity-80 z-0"></div>
         <div class="hidden lg:block lg:w-1/12"></div>
-        <div class="absolute inset-0 bg-black opacity-30 md:opacity-30 z-0"></div>
     </div>
+
     <div class="p-16 flex flex-col gap-8 items-center">
-        <h1 class="text-3xl md:text-5xl text-[var(--subcolor-dark)]">Áreas de <b>Atuação</b></h1>
+        <h2 class="text-3xl md:text-5xl text-[var(--subcolor-dark)]">Áreas de <b>Atuação</b></h2>
         <div class="flex flex-wrap justify-center gap-6 px-4 md:px-10 items-center">
             <div class="cursor-pointer border border-white border-opacity-20 bg-[var(--secondary-color-dark)] rounded-2xl p-6 shadow-lg transition-shadow  w-[22rem] h-[27rem] md:w-[18rem] md:h-[27rem] flex flex-col items-center gap-4">
                 <div class="w-1/4 h-1/4 flex justify-center items-center">
                     <img src="{% static 'assets/icons/pena.png' %}" alt="">
                 </div>
                 <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                    <h2 class="text-2xl text-[var(--secondary-color-light)]">Execução de <b>Pena:</b></h2>
+                    <h3 class="text-2xl text-[var(--secondary-color-light)]">Execução de <b>Pena:</b></h3>
                     <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
                         Esta é a área do direito que protege o meio ambiente da ação humana. Atuamos na busca pelo direito das pessoas e empresas de utilizar os recursos naturais e sua favor. Fazemos defesas técnicas em processos administrativos
                     </p>
@@ -65,7 +69,7 @@
                     <img class="w-4/5" src="{% static 'assets/icons/previdenciario.png' %}" alt="">
                 </div>
                 <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                    <h2 class="text-2xl text-[var(--secondary-color-light)]"><b>Previdenciário:</b></h2>
+                    <h3 class="text-2xl text-[var(--secondary-color-light)]"><b>Previdenciário:</b></h3>
                     <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
                         Esta é a área do direito que protege o meio ambiente da ação humana. Atuamos na busca pelo direito das pessoas e empresas de utilizar os recursos naturais e sua favor. Fazemos defesas técnicas em processos administrativos
                     </p>
@@ -81,7 +85,7 @@
                     <img src="{% static 'assets/icons/criminal.png' %}" alt="">
                 </div>
                 <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                    <h2 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Criminal:</b></h2>
+                    <h3 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Criminal:</b></h3>
                     <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
                         Este é o ramo mais delicado do direito, pois aqui geralmente está em questão a liberdade de uma pessoa. Nossa atuação vai desde o flagrante até o início de execução de pena, sempre buscando a liberdade do cliente ou então a melhor valoração das provas
                     </p>
@@ -97,7 +101,7 @@
                     <img src="{% static 'assets/icons/familiar.png' %}" alt="">
                 </div>
                 <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                    <h2 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Familiar:</b></h2>
+                    <h3 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Familiar:</b></h3>
                     <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
                         Nesta área, o mais importante é gerenciar conflitos, seja aqueles causados por um divórcio ou por um pedido de fixação de guarda e alimentos em favor de menores. Nossa equipe preza pela resolução amigável dos conflitos, sempre propondo o melhor acordo.
                     </p>
@@ -113,7 +117,7 @@
                     <img src="{% static 'assets/icons/civel.png' %}" alt="">
                 </div>
                 <div class="h-2/3 flex flex-col items-center justify-start gap-2">
-                    <h2 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Cível:</b></h2>
+                    <h3 class="text-2xl text-[var(--secondary-color-light)]">Direito <b>Cível:</b></h3>
                     <p class="px-2 text-[var(--secondary-color-light-opacity)] leading-relaxed overflow-y-auto">
                         Nesta área, o mais importante é gerenciar conflitos, seja aqueles causados por um divórcio ou por um pedido de fixação de guarda e alimentos em favor de menores. Nossa equipe preza pela resolução amigável dos conflitos
                     </p>
@@ -125,10 +129,10 @@
             </div>
         </div>
     </div>
-    <div class="relative p-8 sm:p-12 lg:p-16 bg-cover bg-center flex flex-col lg:flex-row gap-8 items-center" style="background-image: url({% static 'assets/advocacia_background.jpg' %});">
+    <div class="relative w-full p-8 sm:p-12 lg:p-16 bg-cover bg-center flex flex-col lg:flex-row gap-8 items-center" style="background-image: url({% static 'assets/execucao_pena.jpg' %});">
         <div class="w-full lg:w-2/3 flex flex-col gap-4 fade-in-up p-6 sm:p-8 justify-center items-start z-10 lg:ml-12 text-center lg:text-left">
-            <h2 class="text-white font-bold text-4xl lg:text-6xl leading-tight md:w-1/2">
-                Seja bem-vindo ao <span class="text-[var(--accent-color)]">Capocci Advocacia</span>
+            <h2 class="text-white text-4xl lg:text-6xl leading-tight md:w-2/3">
+                SEJA BEM VINDO AO <span class="text-[var(--accent-color)]">CAPOCCI ADVOCACIA</span>
             </h2>
             <h5 class="text-white text-3sm sm:text-base lg:text-lg font-light w-full sm:w-3/4 lg:w-2/3 leading-relaxed">
                 Liderado por Aline Capocci, <b>uma advogada criminalista com mais de oito anos de experiência</b>. Atuei em mais de dois mil processos, incluindo casos de grande repercussão e operações em todo o país.
@@ -185,21 +189,25 @@
         <div class="container mx-auto px-6 md:px-12 text-center">
             <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-8">O que nossos clientes dizem</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="flex flex-col justify-center items-center text-center shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow cursor-pointer bg-white h-auto sm:h-64">
-                    <p class="text-gray-700 italic">"A Capocci Advocacia me ajudou a resolver um caso complicado com eficiência e profissionalismo. Recomendo a todos!"</p>
-                    <h4 class="mt-4 text-xl font-bold text-gray-900">Carlos Silva</h4>
+                <div class="flex flex-col justify-center items-center text-center shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow cursor-pointer bg-white h-auto">
+                    <p class="text-gray-700 italic">"Boa noite gostei muito do atendimento do escritório da capocci principalmente por Maria Paula muito atenciosa educada e com muita paciência de explicar as coisas várias vezes para o cliente muito dedicada se eu pudesse eu daria mil estrelas para ela Obrigada pelo carinho"</p>
+                    <h4 class="mt-4 text-xl font-bold text-gray-900">Iolanda Borba</h4>
                     <span class="text-sm text-gray-500">Cliente satisfeito</span>
                 </div>
-    
-                <div class="flex flex-col justify-center items-center text-center shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow cursor-pointer bg-white h-auto sm:h-64">
-                    <p class="text-gray-700 italic">"Fui tratado com respeito e dedicação. A equipe é extremamente atenciosa e competente!"</p>
-                    <h4 class="mt-4 text-xl font-bold text-gray-900">Ana Pereira</h4>
+
+                <div class="flex flex-col justify-center items-center text-center shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow cursor-pointer bg-white h-auto">
+                    <p class="text-gray-700 italic py-4">"Fui atendida por Ana Beatriz.
+                        Me senti acolhida pois além de pedir informações foi um desabado de uma mãe atípica de três crianças com transtorno de TDAH... E que também possui TDAH...
+                        Não está sendo fácil para mim, tive que parar de trabalhar para atender melhor as necessidades dos meus filhos e as minhas também.
+                        E com a ajuda de algumas informações fiquei mais tranquila. Sabendo que meus filhos têm direito de um benefício que fará grande diferença para nós.
+                        O atendimento foi ótimo. Parabéns ao escritório e Ana Beatriz, pelo carinho e a atenção..."</p>
+                    <h4 class="mt-4 text-xl font-bold text-gray-900">Juh Azevedo</h4>
                     <span class="text-sm text-gray-500">Cliente satisfeita</span>
                 </div>
     
-                <div class="flex flex-col justify-center items-center text-center shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow cursor-pointer bg-white h-auto sm:h-64">
-                    <p class="text-gray-700 italic">"Serviço de excelência! Resolvi minha situação de forma rápida e segura."</p>
-                    <h4 class="mt-4 text-xl font-bold text-gray-900">Mariana Souza</h4>
+                <div class="flex flex-col justify-center items-center text-center shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow cursor-pointer bg-white h-auto">
+                    <p class="text-gray-700 italic">"Muito bom! Ana Beatriz, muito atenciosa, disposta a ajudar e direcionando os clientes com muito profissionalismo!"</p>
+                    <h4 class="mt-4 text-xl font-bold text-gray-900">Conceição Rabello</h4>
                     <span class="text-sm text-gray-500">Cliente satisfeita</span>
                 </div>
             </div>

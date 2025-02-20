@@ -6,6 +6,15 @@
     {% block head %}{% endblock %}
     {% include 'parciais/head.html' %}
     <title>{% block title %}{% endblock %}</title>
+    <style>
+        @font-face {
+            font-family: "Fromage";
+            src: url("{% static 'fonts/fromage.woff' %}") format("woff"),
+                url("{% static 'fonts/fromage.otf' %}") format("opentype");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
 
 <body class="flex flex-col min-h-screen" style="background-color: var(--primary-color);">  
