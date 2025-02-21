@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Onde Comer em Maricá
+{{ article.title }}
 {% endblock %}
 
 {% block content %}
@@ -33,6 +33,10 @@ Onde Comer em Maricá
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-8 gap-2 w-full">
             <span class="text-gray-600 font-bold text-sm sm:text-base">{{ article.author }}</span>
             <span class="text-gray-500 text-xs sm:text-sm">{{ article.created_at|date:"d F Y" }}</span>
+        </div>
+        <div class="w-full sm:w-auto flex items-center justify-center bg-[var(--accent-color)] text-[var(--secondary-color-light)] py-3 px-12 rounded gap-2 cursor-pointer">
+            <ion-icon class="text-xl sm:text-2xl" name="logo-whatsapp"></ion-icon>
+            <h5 class="text-sm sm:text-lg lg:text-lg">Entrar em Contato</h5>
         </div>
     </div>
 </section>
