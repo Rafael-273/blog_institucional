@@ -14,20 +14,25 @@
 {% block content %}
 <div class="mx-auto p-6 shadow-md rounded-lg">
     <section class="flex flex-col lg:flex-row items-center lg:space-x-8 lg:space-y-0 p-0 px-6 md:px-0 md:p-6 mt-16">
-        <div class="cover flex-1 hidden md:flex justify-center items-center overflow-hidden h-64 lg:h-[50vh] rounded-lg">
-            <img src="{% static 'assets/sobre_nos.jpg' %}" alt="Imagem sobre a organização" class="cover-image">
-        </div>        
+        <div class="flex flex-col">
+            <div class="cover flex-1 hidden md:flex justify-center items-center overflow-hidden h-64 lg:h-[50vh] rounded-lg">
+                <img src="{% static 'assets/sobre_nos.jpg' %}" alt="Imagem sobre a organização" class="cover-image">
+            </div>        
+            <h6 class="mt-2" style="color: rgb(71, 71, 71);">
+                Dra. Aline Capocci, ao lado da equipe do Dr. Claudio Dalledone, atuando em um caso de grande repercussão
+            </h6>
+        </div>
         
         <div class="flex-1 flex flex-col gap-4 p-4 text-lg leading-relaxed">
             <h2 class="text-5xl text-[var(--subcolor-dark)] leading-tight">Quem <b>Somos?</b></h2>
             <p class="text-[var(--secondary-color-light)]">
-                Seja bem-vindo ao CAPOCCI ADVOCACIA, liderado por Aline Capocci, uma advogada criminalista com mais de oito anos de experiência. Ao longo da minha trajetória profissional, atuei em mais de dois mil processos, incluindo casos de grande repercussão e participação em grandes operações em todo o país.
+                A Capocci Sociedade de Advogados é um escritório altamente especializado em Direito Penal, com atuação estratégica e personalizada em todas as fases do processo criminal — da investigação à execução penal. Nosso foco é oferecer uma defesa técnica, eficaz e combativa em casos de crimes contra a vida, tráfico de drogas, crimes patrimoniais e questões relacionadas à execução penal, sempre priorizando os direitos e garantias fundamentais dos nossos clientes.
 
-No CAPOCCI ADVOCACIA, minha missão é garantir uma defesa robusta e eficaz em todas as etapas do processo criminal. Com uma equipe dedicada de advogados especializados, estamos preparados para oferecer suporte abrangente desde a fase investigativa até o término do cumprimento da pena.
+Nossa atuação é pautada pela excelência técnica, ética e compromisso absoluto com a justiça, buscando as melhores soluções jurídicas em cenários de alta complexidade. Cada caso é tratado de forma única, com estratégias personalizadas e atenção dedicada aos mínimos detalhes.
 
-Contamos com profissionais especializados em processos criminais em curso, recursos até os tribunais superiores e execução penal, assegurando que os direitos e garantias dos nossos clientes sejam respeitados em todas as instâncias.
+Além da forte atuação no campo criminal, a Capocci Sociedade de Advogados conta também com profissionais especializados nas áreas Cível, Previdenciária e Trabalhista, oferecendo suporte completo e integrado para atender amplamente às necessidades dos nossos clientes.
 
-Além disso, nossa equipe inclui especialistas em direito previdenciário e cível, permitindo que benefícios em outras áreas do direito, como o auxílio-reclusão, sejam pleiteados em nome dos nossos clientes.
+Capocci Sociedade de Advogados — Especialização em Direito Penal com atendimento jurídico completo.
             </p>
         </div>
     </section>
@@ -37,9 +42,14 @@ Além disso, nossa equipe inclui especialistas em direito previdenciário e cív
             <h2 class="text-4xl leading-tight mb-6 text-[var(--subcolor-dark)]">Nossa <b>Equipe</b></h2>
             <div class="flex flex-wrap justify-center gap-8 md:gap-12">           
                 <div class="flex flex-col items-center gap-4 order-1 md:order-2">
-                    <div class="relative w-60 h-60 rounded-full overflow-hidden">
-                        <img src="{% static 'assets/aline.jpg' %}" alt="Foto de Dayane" class="w-full h-full object-cover" style="object-position: center bottom; transform: scale(1.2);">
-                    </div>                                     
+                    <div class="flex flex-col">
+                        <div class="relative w-60 h-60 rounded-full overflow-hidden">
+                            <img src="{% static 'assets/aline.jpg' %}" alt="Foto de Dayane" class="w-full h-full object-cover" style="object-position: center bottom; transform: scale(1.2);">
+                        </div>
+                        <h6 class="mt-2" style="color: rgb(71, 71, 71);">
+                            Dra. Aline Capocci, ao lado da equipe do Dr. Claudio Dalledone, atuando em um caso de grande repercussão
+                        </h6> 
+                    </div>                     
                     <div class="text-center">
                         <h4 class="text-xl font-semibold text-[var(--secondary-color-light)]">Aline Capocci</h4>
                         <h5 class="text-[var(--secondary-color-light)]">Advogada Criminalista</h5>
